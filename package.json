@@ -1,0 +1,40 @@
+{
+  "name": "Seaoftweets-Stream-App",
+  "version": "1.0.0",
+  "description": "Seaoftweets web socket application",
+  "keywords": [
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift"
+  ],
+  "author": {
+    "name": "Carlo Zapponi",
+    "email": "me@carlo.im",
+    "url": "http://www.makinguse.com/"
+  },
+  "homepage": "http://www.openshift.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openshift/origin-server"
+  },
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "~3.4.4",
+    "colors": "x",
+    "socket.io": "x",
+    "request": "x",
+    "languagedetect": "x",
+    "twit":"x"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "stream.js"
+}

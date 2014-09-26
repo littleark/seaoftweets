@@ -1,0 +1,735 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.svg#icomoon') format('svg'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+::-webkit-scrollbar-thumb:vertical { background-color: rgba(0,35,73,1); }
+::-webkit-scrollbar { width:10px; height:10px; background: #bfd8ff; margin-right:5px; }
+
+html,body {
+	height:100%;
+}
+html {
+	/*overflow-y: scroll;*/
+}
+iframe.rhc {
+	width:0;
+	height:0;
+	position: absolute;
+}
+body {
+	background: #000;
+	font-family: 'Open Sans', sans-serif;
+}
+body.sea {
+	background: #fff;
+}
+h1 {
+	font-family: 'Lato', sans-serif;
+}
+a {
+	color:#0072ff;
+	text-decoration: none;
+}
+a:hover {
+	color:#333;
+}
+#stats {
+	position: absolute;
+	top:0;
+	width:100%;
+	color:#000;
+	font-size: 10px;
+	z-index: 99999999999999999999;
+
+	-webkit-transition: top 1000ms ease-out;
+	-moz-transition: top 1000ms ease-out;
+	-ms-transition: top 1000ms ease-out;
+	-o-transition: top 1000ms ease-out;
+	transition: top 1000ms ease-out;
+}
+#stats > div{
+	position: relative;
+	margin:0 auto;
+	color:#777;
+	font-size: 14px;
+	background: #fff;
+	width: 45%;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+	text-transform: uppercase;
+
+
+
+}
+#viz {
+	position: relative;
+	height:90%;
+	min-height: 500px;
+	/*border-bottom:3px solid #00aeff;*/
+}
+#viz svg {
+	z-index: 2;
+	position: relative;
+	overflow:hidden;
+}
+.sea #viz {
+	background-color: #bfd8ff;
+}
+.sea #viz #sea {
+	opacity:1;
+}
+#viz #sea {
+	top:51%;
+	bottom:0;
+	left:0;
+	right:0;
+	background: rgb(0,52,130);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMzQ4MiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDIzNDkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(0,52,130,1) 0%, rgba(0,35,73,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,52,130,1)), color-stop(100%,rgba(0,35,73,1)));
+	background: -webkit-linear-gradient(top,  rgba(0,52,130,1) 0%,rgba(0,35,73,1) 100%);
+	background: -o-linear-gradient(top,  rgba(0,52,130,1) 0%,rgba(0,35,73,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(0,52,130,1) 0%,rgba(0,35,73,1) 100%);
+	background: linear-gradient(to bottom,  rgba(0,52,130,1) 0%,rgba(0,35,73,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003482', endColorstr='#002349',GradientType=0 );
+
+	z-index: 0;
+	position: absolute;
+	opacity:0;
+
+
+
+	-webkit-transition: opacity 500ms ease-out;
+	-moz-transition: opacity 500ms ease-out;
+	-ms-transition: opacity 500ms ease-out;
+	-o-transition: opacity 500ms ease-out;
+	transition: opacity 500ms ease-out;
+}
+.title {
+	position: absolute;
+	left:20px;
+	top:20px;
+}
+.sea .title {
+	display: none;
+}
+.sea #sea .title {
+	top:auto;
+	bottom:20px;
+	display:block;
+}
+.title h1 {
+	
+	color:#fff;
+	font-weight: 100;
+	text-shadow: 0px 0px 1px #fff;/*rgba(255,255,255,0.5);*/
+	margin:0;
+	padding:0;
+	
+	font-size:32px;
+	text-transform: uppercase;
+}
+.title h1 span{
+	font-weight: 900;
+}
+.title h3 {
+	margin:0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+	font-size:11px;
+	text-transform: uppercase;
+	color:#fff;
+	font-weight: normal;
+}
+#tweets circle,
+#tweets path {
+	fill:#fff;
+	fill-opacity:0.8;
+	stroke-width:0;
+	stroke:#fff;
+}
+svg text {
+
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   user-select: none;
+
+}
+#tweets path.followers {
+	fill-opacity:0.5;
+	stroke-opacity:0.6;
+	stroke-width: 0;
+
+	-webkit-transition: fill-opacity 500ms ease-out;
+	-moz-transition: fill-opacity 500ms ease-out;
+	-ms-transition: fill-opacity 500ms ease-out;
+	-o-transition: fill-opacity 500ms ease-out;
+	transition: fill-opacity 500ms ease-out;
+
+}
+.sea #tweets path.followers {
+	fill-opacity:0.4;
+}
+#tweets g.new path.followers {
+	fill:none !important;
+	stroke-opacity:0.8;
+	stroke-width: 0.5;
+}
+.sea #viz.epifani #tweets g path.followers,
+.sea #viz.grillo #tweets g path.followers,
+.sea #viz.conte #tweets g path.followers,
+.sea #viz.tavecchio #tweets g path.followers,
+.sea #viz.renzi #tweets g path.followers,
+.sea #viz.alfano #tweets g path.followers,
+.sea #viz.berlusconi #tweets g path.followers {
+	fill-opacity:0;
+}
+.sea #viz.epifani #tweets g.epifani path.followers,
+.sea #viz.grillo #tweets g.grillo path.followers,
+.sea #viz.conte #tweets g.conte path.followers,
+.sea #viz.tavecchio #tweets g.tavecchio path.followers,
+.sea #viz.renzi #tweets g.renzi path.followers,
+.sea #viz.alfano #tweets g.alfano path.followers,
+.sea #viz.berlusconi #tweets g.berlusconi path.followers {
+	fill-opacity:0.4;
+}
+#tweets g circle.center {
+	fill-opacity:0.8;
+	stroke-width:0;
+	stroke:#fff;
+}
+#tweets g.new circle.center {
+	fill-opacity:0.3 !important;
+}
+
+
+#tweets g.conte path {
+	fill:#d90033;
+	stroke:#d90033;
+}
+#tweets g.epifani path {
+	fill:#ff6600;
+	stroke:#ff6600;
+}
+#tweets g.tavecchio path {
+	fill:#bbb;
+	stroke:#bbb;
+}
+
+#tweets g.grillo path {
+	fill:#ffe500;
+	stroke:#ffe500;
+}
+
+#tweets g.berlusconi path,
+#tweets g.alfano path {
+	fill:#0d88cb;
+	stroke:#0d88cb;
+}
+
+#tweets g.renzi path {
+	fill:#7fff00;
+	stroke:#7fff00;
+}
+
+.sea #tweets g.conte path {
+	fill:url(#g_conte);
+	stroke:#d90033;
+}
+.sea #tweets g.tavecchio path {
+	fill:url(#g_tavecchio);
+	stroke:#ccc;
+}
+
+.sea #tweets g.epifani path {
+	fill:url(#g_epifani);
+	stroke:#ff6600;
+}
+
+.sea #tweets g.grillo path {
+	fill:url(#g_grillo);
+	stroke:#ffe500;
+}
+
+.sea #tweets g.berlusconi path,
+.sea #tweets g.alfano path {
+	fill:url(#g_berlusconi);
+	stroke:#0d88cb;
+}
+
+.sea #tweets g.renzi path {
+	fill:url(#g_renzi);
+	stroke:#7fff00;
+}
+@-moz-document url-prefix() {
+
+	.sea #tweets g.conte path {
+		fill:#d90033;
+		stroke:#d90033;
+	}
+
+	.sea #tweets g.epifani path {
+		fill:#ff6600;
+		stroke:#ff6600;
+	}
+
+	.sea #tweets g.tavecchio path {
+		fill:#bbb;
+		stroke:#bbb;
+	}
+
+	.sea #tweets g.grillo path {
+		fill:#ffe500;
+		stroke:#ffe500;
+	}
+
+	.sea #tweets g.berlusconi path,
+	.sea #tweets g.alfano path {
+		fill:#0d88cb;
+		stroke:#0d88cb;
+	}
+
+	.sea #tweets g.renzi path {
+		fill:#7fff00;
+		stroke:#7fff00;
+	}
+}
+
+#tweets g.conte circle{
+	fill:#d90033;
+	stroke:none;
+}
+#tweets g.epifani circle{
+	fill:#ff6600;
+	stroke:none;
+}
+#tweets g.tavecchio circle {
+	fill:#aaa;
+	stroke:none;
+}
+#tweets g.grillo circle {
+	fill:#ffe500;
+	stroke:none;
+}
+#tweets g.berlusconi circle,
+#tweets g.alfano circle {
+	fill:#0d88cb;
+	stroke:none;
+}
+#tweets g.renzi circle {
+	fill:#7fff00;
+	stroke:none;
+}
+
+#tweets line.c,
+#tweets path.c {
+	stroke:#22abef;
+	stroke-width:1;
+	fill:none;
+}
+
+#grid line.grid {
+	stroke:#333;
+	stroke-width:1;
+	shape-rendering: crispEdges;
+}
+
+#grid line.main {
+	stroke:transparent;
+	stroke-width:0;
+	shape-rendering: crispEdges;
+}
+#labels text {
+	fill:#fff;
+	text-transform: uppercase;
+	text-anchor:end;
+	font-size: 11px;
+}
+.sea #labels text {
+	fill:#003482;
+}
+#labels rect {
+	fill:#000;
+	fill-opacity:0.6;
+	stroke:#003482;
+	stroke-width:1.0;
+	shape-rendering: crispEdges;
+}
+#timeline text {
+	fill:#879cbf;
+	text-transform: uppercase;
+	text-anchor:middle;
+	font-size: 11px;
+}
+
+#timeline line {
+	stroke:#333;
+	stroke-width:1;
+	shape-rendering: crispEdges;
+}
+
+.sea #timeline line {
+	stroke:#879cbf;
+}
+
+
+#statuses {
+	position: absolute;	
+	top:0;
+	left:0;
+	width:1px;
+	height:1px;
+	z-index:999999;
+	overflow: visible;
+}
+#statuses div.status {
+	position: absolute;
+	background-color:rgba(255,255,255,0.9);
+	color:#000;
+	font-size: 11px;
+	width:350px;
+	height:80px;
+	padding:10px;
+
+	border:1px solid #eee;
+
+	-webkit-transition: left 200ms ease-out,top 200ms ease-out;
+	-moz-transition: left 200ms ease-out,top 200ms ease-out;
+	-ms-transition: left 200ms ease-out,top 200ms ease-out;
+	-o-transition: left 200ms ease-out,top 200ms ease-out;
+	transition: left 200ms ease-out,top 200ms ease-out;
+}
+#statuses div.status li.berlusconi,
+#statuses div.status li.alfano {
+	background-color:#0d88cb;
+}
+#statuses div.status li.renzi {
+	background-color:#7fff00;
+}
+#statuses div.status li.conte {
+	background-color:#d90033;
+}
+#statuses div.status li.epifani {
+	background-color:#ff6600;
+}
+#statuses div.status li.grillo {
+	background-color:#ffe500;
+}
+#statuses div.status li.tavecchio {
+	background-color:#ececec;
+}
+#statuses div.status h2 {
+	color:#333;
+	font-size: 13px;
+	margin:0;
+	float:left;
+}
+#statuses div.status h2 span{
+	color:#666;
+	font-size: 11px;
+	margin:0 0 0 5px;
+}
+#statuses div.status h3 {
+	color:#00aeff;
+	font-size: 13px;
+	font-weight: normal;
+	margin:0;
+	float:right;
+	text-align: center;
+}
+#statuses div.status h3 span {
+	color:#333;
+	font-size: 8px;
+	margin-left:2px;
+	text-transform: uppercase;
+}
+#statuses div.status p{
+	margin:0;
+	clear: both;
+}
+#statuses div.status ul{
+	margin: 0 0 0 -10px;
+	padding:0;
+	height:15px;
+	position: absolute;
+	bottom: 0;
+	list-style: none;
+	height:15px;
+	width:100%;
+}
+#statuses div.status ul li{
+	float:left;
+	text-align: center;
+	padding:0;
+	text-transform: uppercase;
+	font-size: 10px;
+	line-height: 15px;
+	height:15px;
+}
+#dragme {
+	width:100%;
+	top:150px;
+	left:0;
+	right:0;
+	bottom:0;
+	position: absolute;
+	z-index:9999999;
+	background-color: transparent;
+}
+#dragme #gauge {
+	width:1px;
+	border-left:1px solid #879cbf;
+	overflow: visible;
+	position: absolute;
+	top:0px;
+	left:-200px;
+	-webkit-transition: height 500ms ease-out;
+	-moz-transition: height 500ms ease-out;
+	-ms-transition: height 500ms ease-out;
+	-o-transition: height 500ms ease-out;
+	transition: height 500ms ease-out;
+}
+#dragme #gauge span{
+	display: block;
+	width:80px;
+	left:-40px;
+	height:25px;
+	bottom:-20px;
+	line-height: 25px;
+	background-color: #777;
+	position:absolute;
+	color:#fff;
+	text-transform: uppercase;
+	font-size: 12px;
+	text-align: center;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	cursor: pointer;
+}
+#dragme #gauge:hover span {
+	background-color: #555;
+}
+#dragme #gauge.pressed span,
+#dragme #gauge.pressed:hover span {
+	background-color: #333;
+}
+.sea #dragme #gauge span{
+	background-color: #fff;
+	color:#333;
+}
+.sea #dragme #gauge:hover span {
+	background-color: #999;
+}
+.sea #dragme #gauge.pressed span,
+.sea #dragme #gauge.pressed:hover span {
+	background-color: #ccc;
+}
+#dragme #gauge:hover {
+	border-left:1px solid #999;
+}
+#dragme #gauge.pressed,
+#dragme #gauge.pressed:hover {
+	border-left:1px solid #ccc;
+}
+#footer {
+	min-height: 50px;
+	height:10%;
+	color:#666;
+	font-size: 14px;
+	
+}
+#footer.overlay {
+	bottom: 0;
+	position: absolute;
+	z-index: 99999999999;
+	background: #fff;
+	width: 100%;
+	border-top:3px solid #00aeff;
+}
+#footer.overlay .title{
+	display: block !important;
+}
+#footer.overlay .title h1 {
+	font-size:24px;
+	color:#333;
+	text-shadow: 0px 0px 1px #222;
+}
+
+#footer #about{
+	float:left;
+	margin:20px 0 0 20px;
+}
+#footer.overlay #about{
+	margin:20px;
+	clear: both;
+}
+#footer #about a {
+	display: block;
+	color:#0072ff;
+	background-color: #ccc;
+	padding:5px;
+	text-decoration: none;
+}
+#footer #about a:hover {
+	color:#fff;
+	background-color: #0084d6;
+}
+#footer #about #open{
+	display:block;
+}
+#footer.overlay #about #open{
+	display:none;
+}
+#footer #about #close{
+	display:none;
+}
+#footer.overlay #about #close{
+	display:block;
+}
+#footer #twitter {
+	float:right;
+	margin:20px 20px 0 0;
+}
+
+#footer.overlay #twitter {
+	width:300px;
+	background-color:#eee;
+	padding:10px;
+}
+#footer.overlay #twitter iframe{
+	margin:5px 0;
+}
+#footer h3,
+#footer p {
+	margin:0;
+	display:none;
+}
+#footer.overlay h3,
+#footer.overlay p {
+	display:block;
+}
+#footer.overlay h3 {
+	color:#004acc;
+	float: left;
+	line-height: 30px;
+	margin-right:20px;
+}
+#footer p {
+	max-width: 960px;
+}
+#footer.overlay .title {
+	position: relative;
+	margin-right:380px;	
+}
+#footer.overlay .title p {
+	
+}
+
+div#social {
+	position: absolute;
+	top:0;
+	right:0;
+	margin:20px 20px 0 0;
+	z-index:999999999999;
+	overflow: hidden;
+}
+div#social > *{
+	float:left;
+}
+.twitter-share-button {
+	margin-top: 2px !important;
+	width: 88px !important;
+}
+#mode {
+	position: absolute;
+	right:20px;
+	bottom:10px;
+	z-index: 9999999999999999;
+	color:#fff;
+}
+#mode .fs1 {
+	font-size:30px;
+	text-align: center;
+	color:#fff;
+}
+#mode a {
+	text-decoration: none;
+}
+#mode a:hover {
+	color:#22abef;
+}
+
+.sea #mode a {
+	color:#fff;
+}
+.sea #mode a:hover {
+	color:#ffff00;
+}
+
+.sea #single {
+	display: none;
+}
+#single {
+	display: block;
+}
+.sea #multi {
+	display: block;
+}
+#multi {
+	display: none;
+}
+
+.fs1 span {
+	font-size: 10px;
+	display: block;
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	margin-top:-10px;
+}
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+.icon-menu:before, .icon-minus:before, .icon-paragraph-justify:before, .icon-paragraph-justify-2:before {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-menu:before {
+	content: "\e000";
+}
+.icon-minus:before {
+	content: "\e001";
+}
+.icon-paragraph-justify:before {
+	content: "\e002";
+}
+.icon-paragraph-justify-2:before {
+	content: "\e003";
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>A sea of...tweets - What are italians saying about italians?</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/e.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,900' rel='stylesheet' type='text/css'>
+	<!--<script src="js/vendor/socket.io.js"></script>-->
+	<!--<script src="js/vendor/d3.min.js"></script>-->
+	<script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js" charset="utf-8"></script>
+</head>
+<body class="sea">
+	<div id="stats">
+		<div>connecting...</div>
+	</div>
+	<div id="viz">
+		<div class="title">
+			<h1>a sea of...<span>tweets</span></h1><h3>What are italians saying about italians?</h3>
+		</div>
+		<div id="social">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.seaoftweets.com" data-counturl="http://www.seaoftweets.com" data-via="littleark" data-lang="it" data-hashtags="politcs,italy">Tweet</a>
+			
+			<div class="fb-like" data-href="http://www.seaoftweets.com" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false" data-font="arial"></div>
+			<div id="fb-root"></div>
+			
+		</div>
+		<div id="sea">
+			<div class="title">
+			<h1>a sea of...<span>tweets</span></h1><h3>What are italians saying about italians?</h3>
+			</div>
+		</div>
+		<div id="mode">
+			<a href="#" id="multi" class="fs1" aria-hidden="true" data-icon="&#xe002;"><span>multi wave</span></a>
+			<a href="#" id="single" class="fs1" aria-hidden="true" data-icon="&#xe001;"><span>single wave</span></a>
+		</div>
+		<div id="statuses"></div>
+		<div id="dragme">
+			<div id="gauge"><span>Drag me</span></div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="twitter">
+			<h3>Carlo Zapponi</h3>
+			<a href="https://twitter.com/littleark" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @littleark</a>
+			<p>During his free time he enjoys to visualize what happens around him.<br/>He lives in London where he works as Data Visualization Maker at Microsoft.
+			<br/>
+			<br/>
+			To get in touch: <a href="mailto:info@makinguse.com">info[at]makinguse.com</a>
+			<br/>
+			More projects at <a href="http://www.makinguse.com" target="_blank" title="carlo at makinguse.com">www.makinguse.com</a>
+			</p>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+
+		<div class="title">
+			<h1>A sea of...<span>tweets</span></h1>
+			<p>
+				It's a real-time visualization of what italians are tweeting about other italians.
+				<br/>
+				Italian politics is a mess. No doubt about it. Italians are having a lot of fun sharing their thoughts about their politicians on Twitter. This project visualizes the tweets about politicians riding <b>the wave</b> of fame.
+				<br/>
+				A tweet is like a wave, it grows fast and then it decreases slowly leaving a long tail. The size of the twitter wave are based on the number of followers.
+			</p>
+		</div>
+		<div id="about">
+			<a id="open" href="#">About the project &gt;</a>
+			<a id="close" href="#">&lt; Back</a>
+		</div>
+	</div>
+	
+	<script src="js/c.js"></script>
+	<script type="text/javascript" defer>
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-364839-30']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	<script defer>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script defer>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=36246655985";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>
